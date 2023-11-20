@@ -19,6 +19,13 @@
             padding: 0;
             box-sizing: border-box;
         }
+        
+
+        @media screen and (max-width: 767px) {
+            body {
+                overflow-x: hidden;
+            }
+        }
 
         body {
             font-family: 'PLUS Jakarta Sans';
@@ -162,7 +169,7 @@
         }
 
         /* Estilos específicos para telas pequenas */
-        @media (max-width: 480px) {
+        @media (max-width: 767px) {
             .boxgeral {
                 flex-direction: column;
                 /* Em telas pequenas, os elementos ficarão empilhados verticalmente */
@@ -264,7 +271,7 @@
 
 
         /* Estilos para telas pequenas */
-        @media (max-width: 480px) {
+        @media (max-width: 767px) {
             .form-container {
                 flex-direction: column;
                 /* Em telas pequenas, os elementos ficarão empilhados verticalmente */
@@ -324,68 +331,57 @@
         }
 
         .footer {
-            display: flex;
-            justify-content: space-between;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    box-sizing: border-box;
+    color: #fff;
+}
 
+.footer div {
+    flex: 1 1 100%;
+    text-align: center;
+    margin-bottom: 20px;
+}
 
-            align-items: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            width: 100%;
-            min-width: 480px;
-            max-width: 1138px;
-            margin: 0 auto;
-            padding: 20px;
-            box-sizing: border-box;
+.footer img {
+    max-width: 100%;
+}
 
-            color: #fff;
-        }
+.footer h3 {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
 
-        .footer div {
-            flex: 1;
-            text-align: center;
-            margin-bottom: 20px;
-        }
+.footer p {
+    font-size: 12px;
+}
 
-        .footer img {
-            max-width: 100%;
-        }
+.footer a {
+    color: #fff;
+    text-decoration: none;
+}
 
-        .footer h3 {
-            margin-bottom: 10px;
-            color: #fff;
-            font-size: 14px;
-        }
-
-        .footer p {
-            color: #ccc;
-            font-size: 12px;
-        }
-
-        .footer a {
-            color: #fff;
-            text-decoration: none;
-        }
-
-        #footerbg {
-            background-color: rgb(0, 0, 0, 0.9);
-            /* Branco com leve transparência */
-            width: 100%;
-        }
+#footerbg {
+    background-color: rgba(0, 0, 0, 0.9);
+    width: 100%;
+}
 
         /* Adicionando regras para telas menores */
-        @media screen and (max-width: 480px) {
-            .footer div {
+        @media screen and (max-width: 767px) {
+    .footer {
+        padding: 20px 0; /* Adicionei um espaçamento vertical de 20px para separar os elementos */
+    }
 
+    .footer div {
+        flex: 1 1 100%;
+        margin-bottom: 0;
+    }
+}
 
-                flex: 1 0 100%;
-                /* Ocupa toda a largura, sem encolher */
-                margin-bottom: 0;
-                /* Remove o espaço entre os elementos empilhados */
-            }
-        }
-
-        @media screen and (max-width: 480px) {
+        @media screen and (max-width: 767px) {
             .highlight {
                 width: 100%;
             }
@@ -487,11 +483,12 @@
             border-bottom-left-radius: 0;
             border-radius: 500px;
             border: 1px solid white;
-            box-shadow: 0 0 10px rgba(0,0,0, 0.5);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
             display: flex;
             justify-content: center;
             align-items: center;
             z-index: 1000;
+            overflow-x: hidden;
         }
 
         .close-popup {
@@ -500,7 +497,8 @@
             right: 10px;
             width: 20px;
             height: 20px;
-            background-color: white; opacity: 0.7;
+            background-color: white;
+            opacity: 0.7;
             border-radius: 50%;
             cursor: pointer;
             border: 1px solid #141b17;
@@ -509,23 +507,31 @@
             align-items: center;
             font-size: 12px;
         }
-        .popup {display:none;}
 
-        @media screen and (max-width: 360px) {
+        .popup {
+            display: none;
+        }
+
+        @media screen and (max-width: 767px) {
             .popup {
                 display: none !important;
+                overflow-x: hidden;
             }
-            
+
         }
+
         .form-container-chat {
-                margin-top: 10px;
-                background-color: rgba(255, 255, 255, 0.2); /* Cor branca com 80% de opacidade */
-                padding: 15px; /* Adicione o preenchimento desejado */
-                border-radius: 10px; /* Adicione bordas arredondadas, se desejar */
-                
-            
-        
-        }        
+            margin-top: 10px;
+            background-color: rgba(255, 255, 255, 0.2);
+            /* Cor branca com 80% de opacidade */
+            padding: 15px;
+            /* Adicione o preenchimento desejado */
+            border-radius: 10px;
+            /* Adicione bordas arredondadas, se desejar */
+
+
+
+        }
     </style>
 </head>
 
@@ -536,7 +542,8 @@
 
     <div id="logobg">
 
-        <div class="logo"><a href="https://www.f360.com.br" target="_blank"><img src="logo-f360.png" height="15px" alt="F360"></a></div>
+        <div class="logo"><a href="https://www.f360.com.br" target="_blank"><img src="logo-f360.png" height="15px"
+                    alt="F360"></a></div>
     </div>
     </div>
     <div class="container-geral">
@@ -547,7 +554,7 @@
                 <h2 class="fade-in">Uma solução inovadora com recursos avançados, indispensável para quem quer otimizar
                     a sua produtividade e não se preocupar com burocracias e multas.</h2>
                 <button type="button" class="btn-play">
-                    <b>ASSISTA E DESCUBRA</b><img src="ico-play.png" width="18px">
+                    <b>ASSISTA E DESCUBRA</b><!--img src="ico-play.png" width="18px"-->
                 </button>
 
             </div>
@@ -619,10 +626,10 @@
         <div class="form-container">
             <input type="nome" name="nome" placeholder="Seu nome">
             <input type="email" name="email" placeholder="Seu email">
-            <button type="submit"  onclick="cadastrarLead()">Quero Saber Mais</button>
+            <button type="submit" onclick="cadastrarLead()">Quero Saber Mais</button>
         </div>
         </form>
-        
+
         <h3>Por que a F360 Contábil?</h3>
         <div class="highlights">
             <div class="highlight">
@@ -716,30 +723,30 @@
             });
         });
     </script>
-   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // Aguarde 2 segundos (2000 milissegundos) antes de exibir a popup
-        setTimeout(function () {
-            // Exibe a popup
-            document.querySelector('.popup').style.display = 'block';
-        }, 4000);
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Aguarde 2 segundos (2000 milissegundos) antes de exibir a popup
+            setTimeout(function () {
+                // Exibe a popup
+                document.querySelector('.popup').style.display = 'block';
+            }, 4000);
 
-        // Adiciona o evento de fechar a popup
-        document.querySelector('.close-popup').addEventListener('click', function () {
-            document.querySelector('.popup').style.display = 'none';
+            // Adiciona o evento de fechar a popup
+            document.querySelector('.close-popup').addEventListener('click', function () {
+                document.querySelector('.popup').style.display = 'none';
+            });
         });
-    });
-</script>
+    </script>
 
-<script>
+    <script>
 
-    function cadastrarLead() {
-        
-        alert("Cadastra Lead e abre página com detalhes para contratar");
+        function cadastrarLead() {
 
-        // Abre uma nova página com mais detalhes (substitua 'pagina_detalhes.html' pelo caminho real)
-        //window.open('pagina_detalhes.html', '_blank');
-    }
+            alert("Cadastra Lead e abre página com detalhes para contratar");
+
+            // Abre uma nova página com mais detalhes (substitua 'pagina_detalhes.html' pelo caminho real)
+            //window.open('pagina_detalhes.html', '_blank');
+        }
     </script>
     <script src="js/jquery.js"></script>
     <script src="js/html5shiv.js"></script>
