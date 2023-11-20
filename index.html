@@ -19,7 +19,7 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
+
 
         @media screen and (max-width: 767px) {
             body {
@@ -132,6 +132,7 @@
 
         h2 {
             font-size: 16px;
+            font-weight: normal;
         }
 
         h3 {
@@ -269,6 +270,19 @@
             /* Adiciona espaço entre a imagem e o texto */
         }
 
+        .btn3 {
+            display: block;
+            margin: 30px auto;
+            /* Centraliza o botão na página */
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            background-color: #000000;
+            color: #fff;
+            cursor: none;
+            transition: background-color 0.3s;
+        }
+
 
         /* Estilos para telas pequenas */
         @media (max-width: 767px) {
@@ -299,13 +313,13 @@
             align-items: center;
             gap: 20px;
             flex-wrap: wrap;
-            margin: 40px 0 40px;
+            margin: 40px 0 10px;
         }
 
         .highlight {
             flex: 1;
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             background-color: rgba(255, 255, 255, 0.9);
             border-radius: 10px;
             padding: 20px;
@@ -331,55 +345,57 @@
         }
 
         .footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    width: 100%;
-    box-sizing: border-box;
-    color: #fff;
-}
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            width: 100%;
+            box-sizing: border-box;
+            color: #fff;
+        }
 
-.footer div {
-    flex: 1 1 100%;
-    text-align: center;
-    margin-bottom: 20px;
-}
+        .footer div {
+            flex: 1 1 calc(33.33% - 20px);
+            text-align: center;
+            margin: 20px 0;
+            box-sizing: border-box;
+        }
 
-.footer img {
-    max-width: 100%;
-}
+        .footer img {
+            max-width: 100%;
+        }
 
-.footer h3 {
-    margin-bottom: 10px;
-    font-size: 14px;
-}
+        .footer h3 {
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
 
-.footer p {
-    font-size: 12px;
-}
+        .footer p {
+            font-size: 12px;
+        }
 
-.footer a {
-    color: #fff;
-    text-decoration: none;
-}
+        .footer a {
+            color: #fff;
+            text-decoration: none;
+        }
 
-#footerbg {
-    background-color: rgba(0, 0, 0, 0.9);
-    width: 100%;
-}
+        #footerbg {
+            background-color: rgba(0, 0, 0, 0.9);
+            width: 100%;
+        }
 
         /* Adicionando regras para telas menores */
         @media screen and (max-width: 767px) {
-    .footer {
-        padding: 20px 0; /* Adicionei um espaçamento vertical de 20px para separar os elementos */
-    }
+            .footer {
+                padding: 20px 0;
+                /* Adicionei um espaçamento vertical de 20px para separar os elementos */
+            }
 
-    .footer div {
-        flex: 1 1 100%;
-        margin-bottom: 0;
-    }
-}
+            .footer div {
+                flex: 1 1 100%;
+                margin-bottom: 0;
+            }
+        }
 
         @media screen and (max-width: 767px) {
             .highlight {
@@ -468,56 +484,48 @@
         }
 
         .popup {
+            display: none;
             position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .popup-content {
+            background: url('popup.png');
+            background-size: contain;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            border: 1px solid #fff;
+            border-radius: 50%;
             width: 400px;
             height: 400px;
-            background-image: url('popup.png');
-            background-size: content;
-            -webkit-border-radius: 500px;
-            -webkit-border-bottom-left-radius: 0;
-            -moz-border-radius: 500px;
-            -moz-border-radius-bottomleft: 0;
-            border-bottom-left-radius: 0;
-            border-radius: 500px;
-            border: 1px solid white;
+            margin: 100px auto;
+            padding: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            overflow-x: hidden;
+            text-align: center;
+            color: #fff;
         }
 
-        .close-popup {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            width: 20px;
-            height: 20px;
-            background-color: white;
-            opacity: 0.7;
-            border-radius: 50%;
-            cursor: pointer;
-            border: 1px solid #141b17;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        .close {
+            color: #fff;
+            float: right;
             font-size: 12px;
+            font-weight: bold;
+            cursor: pointer;
         }
 
-        .popup {
-            display: none;
-        }
-
-        @media screen and (max-width: 767px) {
+        @media screen and (max-width: 768px) {
             .popup {
                 display: none !important;
                 overflow-x: hidden;
             }
-
         }
 
         .form-container-chat {
@@ -536,8 +544,10 @@
 </head>
 
 <body>
-    <div class="popup">
-        <div class="close-popup">X</div>
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close">FECHAR</span>
+        </div>
     </div>
 
     <div id="logobg">
@@ -551,11 +561,12 @@
         <div class="boxgeral">
             <div class="boxdest">
                 <h1><img id="transicao-imagem" src="chegou-f360-contabil.png" width="8"></h1>
-                <h2 class="fade-in">Uma solução inovadora com recursos avançados, indispensável para quem quer otimizar
-                    a sua produtividade e não se preocupar com burocracias e multas.</h2>
-                <button type="button" class="btn-play">
-                    <b>ASSISTA E DESCUBRA</b><!--img src="ico-play.png" width="18px"-->
-                </button>
+                <h2 class="fade-in">Uma solução inovadora com recursos avançados, indispensável para quem quer
+                    <b>otimizar
+                        a sua produtividade </b> e não se <b>preocupar com burocracias e multas.</b></h2>
+                <!--button type="button" class="btn-play">
+                    <b>ASSISTA E DESCUBRA</b> <img src="ico-play.png" width="18px">
+                </button-->
 
             </div>
             <div class="boxdest">
@@ -565,12 +576,16 @@
                 </video>
             </div>
         </div>
-        <div class="form-container-chat">
-            <h3>Ficou com alguma dúvida?</H3>
-            <button type="button" class="btn-fale2" id="btnAbrirChat">
-                <img src="ico-chat.png" width="10px"> <b>Fale Conosco Agora</b>
-            </button>
+
+        <h3>Descubra mais sobre essa novidade</h3>
+        <h4>Receba detalhes exclusivos. Explore agora essa novidade!</h4>
+        <form action="/caminho/do/seu/servidor" method="POST"></form>
+        <div class="form-container">
+            <input type="nome" name="nome" placeholder="Seu nome">
+            <input type="email" name="email" placeholder="Seu email">
+            <button type="submit" onclick="cadastrarLead()">Quero Saber Mais</button>
         </div>
+        </form>
 
         <h3> Marcas que confiam na F360 </h3>
 
@@ -619,17 +634,6 @@
             </div>
         </div>
 
-
-        <h3>Descubra mais sobre essa novidade</h3>
-        <h4>Receba detalhes exclusivos. Explore agora essa novidade!</h4>
-        <form action="/caminho/do/seu/servidor" method="POST"></form>
-        <div class="form-container">
-            <input type="nome" name="nome" placeholder="Seu nome">
-            <input type="email" name="email" placeholder="Seu email">
-            <button type="submit" onclick="cadastrarLead()">Quero Saber Mais</button>
-        </div>
-        </form>
-
         <h3>Por que a F360 Contábil?</h3>
         <div class="highlights">
             <div class="highlight">
@@ -648,11 +652,22 @@
                 <p>de créditos e pendências</p>
             </div>
         </div>
-        <h3>Tire suas Dúvidas</h3>
-        <h4>Abra o chat e converse com um profissional!</h4>
-        <button type="button" class="btn-fale2" id="btnAbrirChat">
-            <img src="ico-chat.png" width="10px"> <b>Fale Conosco Agora</b>
+
+        <button type="button" class="btn3">
+            <b>E muito mais!</b>
         </button>
+
+        <h2>Acompanhe os indicadores contábeis e o status das declarações da sua rede de lojas <b>em um só lugar, de
+                maneira descomplicada e intuitiva.</b></h2>
+
+
+        <div class="form-container-chat">
+            <h3>Ficou com alguma dúvida?</H3>
+            <button type="button" class="btn-fale2" id="btnAbrirChat">
+                <img src="ico-chat.png" width="10px"> <b>Fale Conosco Agora</b>
+            </button>
+        </div>
+
     </div>
     <div id="footerbg">
         <div class="footer">
